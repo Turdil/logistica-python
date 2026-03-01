@@ -27,3 +27,11 @@ Main features:
     Python 3.x
 
     Bibliotecas: os, shutil (Built-in)
+
+    
+
+
+    ## 📊 Banco de Dados (SQL)
+Além do Python, incluí um projeto de **SQL** que simula um banco de dados de inventário.
+* **Objetivo:** Gerenciar níveis de estoque e identificar automaticamente itens abaixo do estoque de segurança.
+* **Habilidades:** DDL (Criação de tabelas), DML (Inserção de dados) e Queries complexas de filtro.
