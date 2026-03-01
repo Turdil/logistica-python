@@ -1,0 +1,34 @@
+import os
+import shutil
+
+# O script organiza arquivos por extensão (PDF, XLSX, TXT)
+# Ideal para organizar documentos fiscais e planilhas de rastreio
+
+def organizar_pasta():
+    # Pega o local onde o script está rodando
+    caminho_atual = os.getcwd()
+    
+    # Define os tipos de arquivos que queremos organizar
+    tipos_arquivos = {
+        'Documentos_Fiscais': ['.pdf'],
+        'Planilhas_Rastreio': ['.xlsx', '.xls', '.csv'],
+        'Relatorios_Texto': ['.txt', '.docx']
+    }
+
+    for arquivo in os.listdir(caminho_atual):
+        nome, extensao = os.path.splitext(arquivo)
+        
+        for pasta, extensoes in tipos_arquivos.items():
+            if extensao.lower() in extensoes:
+                # Cria a pasta se ela não existir
+                if not os.path.exists(pasta):
+                    os.makedirs(pasta)
+                
+                # Move o arquivo para a pasta correta
+                print(f"Movendo: {arquivo} -> {pasta}")
+                shutil.move(arquivo, os.path.join(pasta, arquivo))
+
+if __name__ == "__main__":
+    print("Iniciando organização de arquivos logísticos...")
+    organizar_pasta()
+    print("Concluído com sucesso!")
